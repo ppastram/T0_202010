@@ -7,7 +7,7 @@ package model.data_structures;
  * @author Fernando De la Rosa
  *
  */
-public class ArregloDinamico implements IArregloDinamico {
+public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinamico<T> {
 		/**
 		 * Capacidad maxima del arreglo
 		 */
@@ -19,7 +19,7 @@ public class ArregloDinamico implements IArregloDinamico {
         /**
          * Arreglo de elementos de tamaNo maximo
          */
-        private String elementos[ ];
+        private int elementos[ ];
 
         /**
          * Construir un arreglo con la capacidad maxima inicial.
@@ -27,18 +27,18 @@ public class ArregloDinamico implements IArregloDinamico {
          */
 		public ArregloDinamico( int max )
         {
-               elementos = new String[max];
+               elementos = new int[max];
                tamanoMax = max;
                tamanoAct = 0;
         }
         
-		public void agregar( String dato )
+		public void agregar( int dato )
         {
                if ( tamanoAct == tamanoMax )
                {  // caso de arreglo lleno (aumentar tamaNo)
                     tamanoMax = 2 * tamanoMax;
-                    String [ ] copia = elementos;
-                    elementos = new String[tamanoMax];
+                    int [ ] copia = elementos;
+                    elementos = new int[tamanoMax];
                     for ( int i = 0; i < tamanoAct; i++)
                     {
                      	 elementos[i] = copia[i];
@@ -57,40 +57,40 @@ public class ArregloDinamico implements IArregloDinamico {
 			return tamanoAct;
 		}
 
-		public String darElemento(int i) {
+		public int darElemento(int i) {
 			// TODO implementar
 			
 			return elementos[i];
 		}
 
-		public String buscar(String dato) {
+		public int buscar(int dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
 			
 			for ( int i = 0; i < tamanoAct; i++)
             {
-             	 if (elementos[i].compareTo(dato) == 0)
+             	 if (elementos[i] == dato)
              	 {
              		 return dato;
              	 }
             } 
 			
-			return null;
+			return 0;
 		}
 
-		public String eliminar(String dato) {
+		public int eliminar(int dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
 			
-            String [ ] copia = elementos;
-            elementos = new String[tamanoAct];
+            int [ ] copia = elementos;
+            elementos = new int[tamanoAct];
             boolean encontrado = false;
             int e = 0;
 
 
 			for ( int i = 0; i < tamanoAct; i++)
             {
-             	 if (copia[i].compareTo(dato) != 0)
+             	 if (copia[i] != dato)
              	 {
              		 elementos[i-e] = copia[i];
              	 }
@@ -107,8 +107,9 @@ public class ArregloDinamico implements IArregloDinamico {
 				return dato;
 			}
 			
-			return null;
+			return 0;
 			
 		}
+
 
 }
