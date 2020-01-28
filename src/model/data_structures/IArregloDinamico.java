@@ -4,6 +4,7 @@ public interface IArregloDinamico <T extends Comparable<T>> {
 
 	/**
 	 * Retornar el numero de elementos maximo en el arreglo
+	 * @return 
 	 * @return
 	 */
 	int darCapacidad( );
@@ -19,21 +20,21 @@ public interface IArregloDinamico <T extends Comparable<T>> {
 	 * @param i posicion de consulta
 	 * @return elemento de consulta. null si no hay elemento en posicion.
 	 */
-	int darElemento( int i );
+	T darElemento( int i );
 
 	/**
 	 * Agregar un dato de forma compacta (en la primera casilla disponible) 
 	 * Caso Especial: Si el arreglo esta lleno debe aumentarse su capacidad, agregar el nuevo dato y deben quedar multiples casillas disponibles para futuros nuevos datos.
 	 * @param dato nuevo elemento
 	 */
-	public void agregar( int dato );
+	public void agregar( T dato );
 		
 	/**
 	 * Buscar un dato en el arreglo.
 	 * @param dato Objeto de busqueda en el arreglo
 	 * @return elemento encontrado en el arreglo (si existe). null si no se encontro el dato.
 	 */
-	int buscar(int dato);
+	T buscar(T dato);
 	
 	/**
 	 * Eliminar un dato del arreglo.
@@ -41,6 +42,6 @@ public interface IArregloDinamico <T extends Comparable<T>> {
 	 * @param dato Objeto de eliminacion en el arreglo
 	 * @return dato eliminado
 	 */
-	int eliminar( int dato );
+	T eliminar( T dato );
 
 }

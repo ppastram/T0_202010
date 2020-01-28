@@ -8,26 +8,26 @@ import model.data_structures.IArregloDinamico;
  *
  */
 
-public class Modelo{
+public class Modelo <T extends Comparable<T>> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	public IArregloDinamico <Integer> datos;
+	public IArregloDinamico <T> datos;
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public Modelo()
 	{
-		datos = new ArregloDinamico <Integer> (7);
+		datos = new ArregloDinamico <T> (7);
 	}
 	
 	/**
 	 * Constructor del modelo del mundo con capacidad dada
 	 * @param tamano
 	 */
-	public Modelo(Integer capacidad)
+	public Modelo(int capacidad)
 	{
-		datos = new ArregloDinamico <Integer> (capacidad);
+		datos = new ArregloDinamico <T> (capacidad);
 	}
 	
 	/**
@@ -43,9 +43,10 @@ public class Modelo{
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(int dato)
+	public void agregar(T dato)
 	{	
 		datos.agregar(dato);
+
 	}
 	
 	/**
@@ -53,9 +54,10 @@ public class Modelo{
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public int buscar(int dato)
+	public T buscar(T dato)
 	{
 		return datos.buscar(dato);
+
 	}
 	
 	/**
@@ -63,7 +65,7 @@ public class Modelo{
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public int eliminar(int dato)
+	public T eliminar(T dato)
 	{
 		return datos.eliminar(dato);
 	}
